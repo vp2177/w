@@ -1,8 +1,7 @@
 {
   "private": true,
-  "//type": "module",
   "scripts": {
-    "build:swc": "swc src/main.js -o .gen/bundle.js",
+    "build:swc": "swc a -o b",
     "build": "spack",
     "format": "prettier -w ."
   },
@@ -11,8 +10,10 @@
     "@swc/cli": "0.1.57"
   },
   "dependencies": {
-    "hyperapp": "2.0.22",
-    "solid-js": "1.6.0"
+    "hyperapp": "2.0.22"
   },
-  "//dependencies": {}
+  "//dependencies": {
+    "solid-js": "1.6.0"
+
+  }
 }
