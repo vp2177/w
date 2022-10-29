@@ -3,9 +3,9 @@
     "type": "module",
     "scripts": {
         
-        "build": "__swc src/main.js -o .gen/bundle.js",
-        "build:swcpack": "__spack --help",
-        "format": "__prettier -w ."
+        "build": "swc src/main.js -o .gen/bundle.js",
+        "build:swcpack": "spack --help",
+        "format": "prettier -w ."
     },
     "devDependencies": {
         "prettier": "2.7.1",
