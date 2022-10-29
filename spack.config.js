@@ -8,8 +8,7 @@ module.exports = config({
     output: {
         path: __dirname + "/.gen/"
     },
-    options: {
-    },
+    options: {  },
     target: 'browser',
 
 
