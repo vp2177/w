@@ -5,7 +5,7 @@ app({
   init: {},
   view(state) {
     return h("div", { class: "Desktop" }, [
-      myWindow(5, 5, "Test#1", () => {}, h("mark", {}, text("..."))),
+      myWindow(10, 10, "Test#1", () => {}),
     ]);
   },
   node: document.getElementById("main"),

@@ -1,3 +1,31 @@
 body {
   font-family: system-ui, sans-serif;
 }
+
+.Desktop {
+  background-image: linear-gradient(  skyblue, turquoise);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.Window {
+  background-color: gainsboro;
+  position: absolute;
+  border-radius: 0.8em;
+  box-shadow:0 0.4em 0.8em #0008;
+}
+.Window__title {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  text-align: center;
+}
+.Window__closer {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
