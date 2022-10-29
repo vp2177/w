@@ -1,18 +1,18 @@
 {
-    "private":true,
-    "type": "module",
-    "scripts": {
-        
-        "build": "swc src/main.js -o .gen/bundle.js",
-        "build:swcpack": "spack --help",
-        "format": "prettier -w ."
-    },
-    "devDependencies": {
-        "prettier": "2.7.1",
-        "@swc/cli": "0.1.57"
-    },"dependencies": {
-        "hyperapp": "2.0.22",
-        "solid-js": "1.6.0"
-    },
-    "//dependencies": {    }
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "swc src/main.js -o .gen/bundle.js",
+    "build:swcpack": "spack --help",
+    "format": "prettier -w ."
+  },
+  "devDependencies": {
+    "prettier": "2.7.1",
+    "@swc/cli": "0.1.57"
+  },
+  "dependencies": {
+    "hyperapp": "2.0.22",
+    "solid-js": "1.6.0"
+  },
+  "//dependencies": {}
 }
