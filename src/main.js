@@ -1,6 +1,7 @@
-console.info("Yo");
+import {} from "./common";
 
 const mainEl = document.getElementById("main");
+console.info( mainEl);
 
 /**
  * Create
