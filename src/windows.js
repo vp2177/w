@@ -1,4 +1,3 @@
-import { h, text } from "hyperapp";
 
 export function myWindow(
   x = 0,

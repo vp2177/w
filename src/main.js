@@ -1,6 +1,8 @@
-import { app, h, text } from "hyperapp";
-import { myWindow } from "./windows";
+import SW from "solid-js/web"
+import {createSignal,} from "solid-js";
+// import { myWindow } from "./windows";
 
+/*
 app({
   init: {},
   view(state) {
@@ -10,6 +12,10 @@ app({
   },
   node: document.getElementById("main"),
 });
+*/
+
+SW.render(() => "__", document.getElementById("main"))
+
 
 /**
  * Create
