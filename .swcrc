@@ -1,3 +1,10 @@
 {
-  "$schema": "https://json.schemastore.org/swcrc"
+  "$schema": "https://json.schemastore.org/swcrc",
+   "jsc": {
+    "parser": {
+      "jsx": true,
+      "syntax": "ecmascript"
+    }
+   },
+   "minify": true
 }
