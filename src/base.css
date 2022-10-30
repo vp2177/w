@@ -3,7 +3,9 @@ body {
 }
 
 .Desktop {
-  background-image: linear-gradient(  skyblue, turquoise);
+  /* linear-gradient(skyblue, turquoise) */
+  background-image: url("../assets/pexels-stein-egil-liland-1933319.jpg");
+  background-size: cover;
   position: absolute;
   top: 0;
   right: 0;
@@ -24,6 +26,7 @@ body {
   right: 0;
   left: 0;
   text-align: center;
+  cursor: nesw-resize;
 }
 .Window__closer {
   position: absolute;
@@ -31,6 +34,7 @@ body {
   left: 0;
   background: transparent;
   border-width: 0;
+  color: red;
 }
 .Window__closer::after {
   content: '\0000d7';
@@ -39,5 +43,11 @@ body {
 .Cone {
   width: 150px;
   height: 150px;
-  background-image: conic-gradient( white, black, white);
+  background-image: conic-gradient(yellow,red,blue,yellow);
+}
+
+.AboutBox {
+  min-width: 150px;
+  text-align: center;
+  margin: 2em 1em 1em;
 }
