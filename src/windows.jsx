@@ -1,5 +1,6 @@
 import { h } from "preact";
 import { useState } from "preact/hooks";
+/* @jsx h */
 
 export function MyWindow({
   x = 0,
@@ -11,36 +12,21 @@ export function MyWindow({
   const [[ax, ay], setActual] = useState([x, y]);
  const [closing, setClosing]=  useState(false)
 
-  return h(
-    "div",
-    {
-      className: "Window " + (closing? "closing":""),
-      style: {
-        left: ax,
-        top: ay,
-      },
-    },
-    children,
-    h(
-      "div",
-      {
-        className: "Window__title",
-        onPointerDown: () =>
+  return <div className={`Window ${closing? "closing":""}`}
+      style={{left: ax, top: ay}}>
+        {children}
+        <div className="Window__title" onPointerDown={() =>
           startTrackingPointerMove((dx, dy) =>
             setActual(([oldx, oldy]) => [oldx + dx, oldy + dy])
-          ),
-      },
-      title
-    ),
-    h("button", {
-      className: "Window__closer",
-      title: "Close",
-      onClick: (ev) => {
+          )}>
+          {title} 
+        </div>
+        <button class="Window__closer" title="Close" onClick={(ev) => {
         setClosing(true)
         onClose(ev)
-      },
-    })
-  );
+      }} />
+      </div>
+  
 }
 
 /**
