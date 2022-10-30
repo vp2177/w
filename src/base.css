@@ -17,7 +17,7 @@ body {
   background-color: gainsboro;
   position: absolute;
   border-radius: 0.8em;
-  box-shadow:0 0.4em 0.8em #0008;
+  box-shadow: 0 0.4em 0.8em #0008;
   overflow: hidden;
 }
 .Window__title {
@@ -37,13 +37,13 @@ body {
   color: red;
 }
 .Window__closer::after {
-  content: '\0000d7';
+  content: "\0000d7";
 }
 
 .Cone {
   width: 150px;
   height: 150px;
-  background-image: conic-gradient(yellow,red,blue,yellow);
+  background-image: conic-gradient(yellow, red, blue, yellow);
 }
 
 .AboutBox {

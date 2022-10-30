@@ -1,3 +1,49 @@
+function _arrayLikeToArray(arr, len) {
+    if (len == null || len > arr.length) len = arr.length;
+    for(var i = 0, arr2 = new Array(len); i < len; i++)arr2[i] = arr[i];
+    return arr2;
+}
+function _arrayWithHoles(arr) {
+    if (Array.isArray(arr)) return arr;
+}
+function _iterableToArrayLimit(arr, i) {
+    var _i = arr == null ? null : (typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]);
+    if (_i == null) return;
+    var _arr = [];
+    var _n = true;
+    var _d = false;
+    var _s, _e;
+    try {
+        for(_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true){
+            _arr.push(_s.value);
+            if (i && _arr.length === i) break;
+        }
+    } catch (err) {
+        _d = true;
+        _e = err;
+    } finally{
+        try {
+            if (!_n && _i["return"] != null) _i["return"]();
+        } finally{
+            if (_d) throw _e;
+        }
+    }
+    return _arr;
+}
+function _nonIterableRest() {
+    throw new TypeError("Invalid attempt to destructure non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+function _slicedToArray(arr, i) {
+    return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+}
+function _unsupportedIterableToArray(o, minLen) {
+    if (!o) return;
+    if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor) n = o.constructor.name;
+    if (n === "Map" || n === "Set") return Array.from(n);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
 var n, l, u, t, o, f = {}, e = [], c = /acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i;
 function s(n, l) {
     for(var u in l)n[u] = l[u];
@@ -247,7 +293,179 @@ n = e.slice, l = {
 }, d.prototype.forceUpdate = function(n) {
     this.__v && (this.__e = !0, n && this.__h.push(n), b(this));
 }, d.prototype.render = p, t = [], g.__r = 0, 0;
+function AboutBox() {
+    return h("article", {
+        className: "AboutBox"
+    }, h("section", null, "".concat(navigator.hardwareConcurrency, " cores")), h("section", {}, navigator.platform), h("section", {}, "".concat(screen.width, "*").concat(screen.height)), h("section", {}, "Came from <".concat(document.referrer, ">")), h("section", {}, String(navigator.languages)));
+}
+var t1, r, u1, i, o1 = 0, f1 = [], c1 = [], e1 = l.__b, a1 = l.__r, v1 = l.diffed, l1 = l.__c, m1 = l.unmount;
+function d1(t, u) {
+    l.__h && l.__h(r, t, o1 || u), o1 = 0;
+    var i = r.__H || (r.__H = {
+        __: [],
+        __h: []
+    });
+    return t >= i.__.length && i.__.push({
+        __V: c1
+    }), i.__[t];
+}
+function p1(n) {
+    return o1 = 1, y(B, n);
+}
+function y(n, u, i) {
+    var o = d1(t1++, 2);
+    if (o.t = n, !o.__c && (o.__ = [
+        i ? i(u) : B(void 0, u),
+        function(n) {
+            var t = o.__N ? o.__N[0] : o.__[0], r = o.t(t, n);
+            t !== r && (o.__N = [
+                r,
+                o.__[1]
+            ], o.__c.setState({}));
+        }
+    ], o.__c = r, !r.u)) {
+        r.u = !0;
+        var f = r.shouldComponentUpdate;
+        r.shouldComponentUpdate = function(n, t, r) {
+            if (!o.__c.__H) return !0;
+            var u = o.__c.__H.__.filter(function(n) {
+                return n.__c;
+            });
+            if (u.every(function(n) {
+                return !n.__N;
+            })) return !f || f.call(this, n, t, r);
+            var i = !1;
+            return u.forEach(function(n) {
+                if (n.__N) {
+                    var t = n.__[0];
+                    n.__ = n.__N, n.__N = void 0, t !== n.__[0] && (i = !0);
+                }
+            }), !(!i && o.__c.props === n) && (!f || f.call(this, n, t, r));
+        };
+    }
+    return o.__N || o.__;
+}
+function b1() {
+    for(var t; t = f1.shift();)if (t.__P && t.__H) try {
+        t.__H.__h.forEach(k1), t.__H.__h.forEach(w1), t.__H.__h = [];
+    } catch (r) {
+        t.__H.__h = [], l.__e(r, t.__v);
+    }
+}
+l.__b = function(n) {
+    "function" != typeof n.type || n.__m || null === n.__ ? n.__m || (n.__m = n.__ && n.__.__m ? n.__.__m : "") : n.__m = (n.__ && n.__.__m ? n.__.__m : "") + (n.__ && n.__.__k ? n.__.__k.indexOf(n) : 0), r = null, e1 && e1(n);
+}, l.__r = function(n) {
+    a1 && a1(n), t1 = 0;
+    var i = (r = n.__c).__H;
+    i && (u1 === r ? (i.__h = [], r.__h = [], i.__.forEach(function(n) {
+        n.__N && (n.__ = n.__N), n.__V = c1, n.__N = n.i = void 0;
+    })) : (i.__h.forEach(k1), i.__h.forEach(w1), i.__h = [])), u1 = r;
+}, l.diffed = function(t) {
+    v1 && v1(t);
+    var o = t.__c;
+    o && o.__H && (o.__H.__h.length && (1 !== f1.push(o) && i === l.requestAnimationFrame || ((i = l.requestAnimationFrame) || j1)(b1)), o.__H.__.forEach(function(n) {
+        n.i && (n.__H = n.i), n.__V !== c1 && (n.__ = n.__V), n.i = void 0, n.__V = c1;
+    })), u1 = r = null;
+}, l.__c = function(t, r) {
+    r.some(function(t) {
+        try {
+            t.__h.forEach(k1), t.__h = t.__h.filter(function(n) {
+                return !n.__ || w1(n);
+            });
+        } catch (u) {
+            r.some(function(n) {
+                n.__h && (n.__h = []);
+            }), r = [], l.__e(u, t.__v);
+        }
+    }), l1 && l1(t, r);
+}, l.unmount = function(t) {
+    m1 && m1(t);
+    var r, u = t.__c;
+    u && u.__H && (u.__H.__.forEach(function(n) {
+        try {
+            k1(n);
+        } catch (n1) {
+            r = n1;
+        }
+    }), u.__H = void 0, r && l.__e(r, u.__v));
+};
+var g1 = "function" == typeof requestAnimationFrame;
+function j1(n) {
+    var t, r = function() {
+        clearTimeout(u), g1 && cancelAnimationFrame(t), setTimeout(n);
+    }, u = setTimeout(r, 100);
+    g1 && (t = requestAnimationFrame(r));
+}
+function k1(n) {
+    var t = r, u = n.__c;
+    "function" == typeof u && (n.__c = void 0, u()), r = t;
+}
+function w1(n) {
+    var t = r;
+    n.__c = n.__(), r = t;
+}
+function B(n, t) {
+    return "function" == typeof t ? t(n) : t;
+}
+function MyWindow(param) {
+    var _x = param.x, x = _x === void 0 ? 0 : _x, _y = param.y, y = _y === void 0 ? 0 : _y, _title = param.title, title = _title === void 0 ? "Untitled" : _title, _onClose = param.onClose, onClose = _onClose === void 0 ? function() {} : _onClose, children = param.children;
+    var ref = _slicedToArray(p1([
+        x,
+        y
+    ]), 2), ref1 = _slicedToArray(ref[0], 2), ax = ref1[0], ay = ref1[1], setActual = ref[1];
+    return h("div", {
+        className: "Window",
+        style: {
+            left: ax,
+            top: ay
+        }
+    }, children, h("div", {
+        className: "Window__title",
+        onPointerDown: function() {
+            return startTracking(function(dx, dy) {
+                return setActual(function(param) {
+                    var _param = _slicedToArray(param, 2), oldx = _param[0], oldy = _param[1];
+                    return [
+                        oldx + dx,
+                        oldy + dy
+                    ];
+                });
+            });
+        }
+    }, title), h("button", {
+        className: "Window__closer",
+        title: "Close",
+        onClick: onClose
+    }));
+}
+function startTracking(onMove) {
+    var stopOn = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "pointerup";
+    var handleMove = function(ev) {
+        onMove(ev.movementX, ev.movementY);
+    };
+    var handleEnd = function(ev) {
+        window.removeEventListener("pointercancel", handleEnd);
+        window.removeEventListener(stopOn, handleEnd);
+        window.removeEventListener("pointermove", handleMove);
+        console.info("Stopped tracking due to", ev.type);
+    };
+    window.addEventListener("pointercancel", handleEnd);
+    window.addEventListener(stopOn, handleEnd);
+    window.addEventListener("pointermove", handleMove);
+    console.info("Started tracking");
+}
 function MainApp() {
-    return "987";
+    return h("div", {
+        className: "Desktop"
+    }, h(MyWindow, {
+        x: 50,
+        y: 50
+    }, h("div", {
+        className: "Cone"
+    })), h(MyWindow, {
+        x: 250,
+        y: 20,
+        title: "About"
+    }, h(AboutBox)));
 }
 P(h(MainApp), document.getElementById("main"));
