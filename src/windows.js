@@ -9,11 +9,12 @@ export function MyWindow({
   children,
 }) {
   const [[ax, ay], setActual] = useState([x, y]);
+ const [closing, setClosing]=  useState(false)
 
   return h(
     "div",
     {
-      className: "Window",
+      className: "Window " + (closing? "closing":""),
       style: {
         left: ax,
         top: ay,
@@ -25,7 +26,7 @@ export function MyWindow({
       {
         className: "Window__title",
         onPointerDown: () =>
-          startTracking((dx, dy) =>
+          startTrackingPointerMove((dx, dy) =>
             setActual(([oldx, oldy]) => [oldx + dx, oldy + dy])
           ),
       },
@@ -34,7 +35,10 @@ export function MyWindow({
     h("button", {
       className: "Window__closer",
       title: "Close",
-      onClick: onClose,
+      onClick: (ev) => {
+        setClosing(true)
+        onClose(ev)
+      },
     })
   );
 }
@@ -42,21 +46,21 @@ export function MyWindow({
 /**
  * @param onMove {(dx: number, dy: number) => *}
  */
-export function startTracking(onMove, stopOn = "pointerup") {
+export function startTrackingPointerMove(onMove){ 
   const handleMove = (/** @type {PointerEvent} */ ev) => {
     onMove(ev.movementX, ev.movementY);
   };
   const handleEnd = (/** @type {PointerEvent} */ ev) => {
     window.removeEventListener("pointercancel", handleEnd);
-    window.removeEventListener(stopOn, handleEnd);
+    window.removeEventListener("pointerup", handleEnd);
     window.removeEventListener("pointermove", handleMove);
 
     console.info("Stopped tracking due to", ev.type);
   };
 
   window.addEventListener("pointercancel", handleEnd);
-  window.addEventListener(stopOn, handleEnd);
-  window.addEventListener("pointermove", handleMove /* TODO? {passive: true}*/);
+  window.addEventListener("pointerup", handleEnd);
+  window.addEventListener("pointermove", handleMove );
 
   console.info("Started tracking");
 }
