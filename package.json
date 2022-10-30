@@ -10,9 +10,9 @@
     "@swc/cli": "0.1.57"
   },
   "dependencies": {
-    "hyperapp": "2.0.22"
+    "solid-js": "1.6.0"
   },
   "//dependencies": {
-    "solid-js": "1.6.0"
+    "hyperapp": "2.0.22"
   }
 }
