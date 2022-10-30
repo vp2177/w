@@ -1,7 +1,6 @@
 {
   "private": true,
   "scripts": {
-    "build:swc": "swc a -o b",
     "build": "spack",
     "format": "prettier -w ."
   },
@@ -12,7 +11,7 @@
   "dependencies": {
     "preact": "10.11.2"
   },
-  "//dependencies": {
+  "triedThese": {
     "hyperapp": "2.0.22",
     "solid-js": "1.6.0"
   }
