@@ -9,10 +9,11 @@
     "@swc/cli": "0.1.57"
   },
   "dependencies": {
-    "preact": "10.11.2"
+    "preact": "10.11.2",
+    "fasy": "9.0.2"
   },
   "triedThese": {
-    "hyperapp": "2.0.22",
-    "solid-js": "1.6.0"
+    "hyperapp": "~2.0",
+    "solid-js": "~1.6"
   }
 }
