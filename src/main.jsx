@@ -6,11 +6,16 @@ import { MyWindow } from "./windows";
 /* @jsx h */
 
 function MainApp() {
-  return <div className="Desktop">
-    <MyWindow x={50} y={50}><div className="Cone" /></MyWindow>
-    <MyWindow x={250} y={20} title="About"><AboutBox /></MyWindow>
-  </div>
-  
+  return (
+    <div className="Desktop">
+      <MyWindow x={50} y={50}>
+        <div className="Cone" />
+      </MyWindow>
+      <MyWindow x={250} y={20} title="About">
+        <AboutBox />
+      </MyWindow>
+    </div>
+  );
 }
 
 render(<MainApp />, document.getElementById("main"));

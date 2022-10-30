@@ -10,29 +10,40 @@ export function MyWindow({
   children,
 }) {
   const [[ax, ay], setActual] = useState([x, y]);
- const [closing, setClosing]=  useState(false)
+  const [closing, setClosing] = useState(false);
 
-  return <div className={`Window ${closing? "closing":""}`}
-      style={{left: ax, top: ay}}>
-        {children}
-        <div className="Window__title" onPointerDown={() =>
+  return (
+    <div
+      className={`Window ${closing ? "closing" : ""}`}
+      style={{ left: ax, top: ay }}
+    >
+      {children}
+      <div
+        className="Window__title"
+        onPointerDown={() =>
           startTrackingPointerMove((dx, dy) =>
             setActual(([oldx, oldy]) => [oldx + dx, oldy + dy])
-          )}>
-          {title} 
-        </div>
-        <button class="Window__closer" title="Close" onClick={(ev) => {
-        setClosing(true)
-        onClose(ev)
-      }} />
+          )
+        }
+      >
+        {title}
       </div>
-  
+      <button
+        class="Window__closer"
+        title="Close"
+        onClick={(ev) => {
+          setClosing(true);
+          onClose(ev);
+        }}
+      />
+    </div>
+  );
 }
 
 /**
  * @param onMove {(dx: number, dy: number) => *}
  */
-export function startTrackingPointerMove(onMove){ 
+export function startTrackingPointerMove(onMove) {
   const handleMove = (/** @type {PointerEvent} */ ev) => {
     onMove(ev.movementX, ev.movementY);
   };
@@ -46,7 +57,7 @@ export function startTrackingPointerMove(onMove){
 
   window.addEventListener("pointercancel", handleEnd);
   window.addEventListener("pointerup", handleEnd);
-  window.addEventListener("pointermove", handleMove );
+  window.addEventListener("pointermove", handleMove);
 
   console.info("Started tracking");
 }

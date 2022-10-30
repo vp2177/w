@@ -1,1 +1,1 @@
-import {} from "preact/compat"
+import {} from "preact/compat";

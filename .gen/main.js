@@ -295,14 +295,10 @@ n = e.slice, l = {
 }, d.prototype.render = p, t = [], g.__r = 0, 0;
 function AboutBox() {
     var ref, ref1, ref2;
-    var ref3;
     return h("article", {
         className: "AboutBox"
-    }, h("section", null, "".concat(navigator.hardwareConcurrency, " cores")), h("section", {}, navigator.platform), h("section", {}, "".concat(screen.width, "*").concat(screen.height)), h("section", {}, String(navigator.languages)), h("section", {}, "".concat((ref3 = (ref = navigator.connection) === null || ref === void 0 ? void 0 : ref.type) !== null && ref3 !== void 0 ? ref3 : "?", " ").concat((ref1 = navigator.connection) === null || ref1 === void 0 ? void 0 : ref1.downlink, " down, ").concat((ref2 = navigator.connection) === null || ref2 === void 0 ? void 0 : ref2.rtt, " rtt")));
+    }, h("section", null, navigator.hardwareConcurrency, " cores"), h("section", null, navigator.platform), h("section", null, screen.width, "*", screen.height), h("section", null, String(navigator.languages)), h("section", null, (ref = navigator.connection) === null || ref === void 0 ? void 0 : ref.type, (ref1 = navigator.connection) === null || ref1 === void 0 ? void 0 : ref1.downlink, " down,", (ref2 = navigator.connection) === null || ref2 === void 0 ? void 0 : ref2.rtt, " rtt"));
 }
-var B = function() {
-    return h("strong", null, "B");
-};
 var t1, r, u1, i, o1 = 0, f1 = [], c1 = [], e1 = l.__b, a1 = l.__r, v1 = l.diffed, l1 = l.__c, m1 = l.unmount;
 function d1(t, u) {
     l.__h && l.__h(r, t, o1 || u), o1 = 0;
@@ -315,12 +311,12 @@ function d1(t, u) {
     }), i.__[t];
 }
 function p1(n) {
-    return o1 = 1, y(B1, n);
+    return o1 = 1, y(B, n);
 }
 function y(n, u, i) {
     var o = d1(t1++, 2);
     if (o.t = n, !o.__c && (o.__ = [
-        i ? i(u) : B1(void 0, u),
+        i ? i(u) : B(void 0, u),
         function(n) {
             var t = o.__N ? o.__N[0] : o.__[0], r = o.t(t, n);
             t !== r && (o.__N = [
@@ -409,7 +405,7 @@ function w1(n) {
     var t = r;
     n.__c = n.__(), r = t;
 }
-function B1(n, t) {
+function B(n, t) {
     return "function" == typeof t ? t(n) : t;
 }
 function MyWindow(param) {
@@ -420,7 +416,7 @@ function MyWindow(param) {
     ]), 2), ref1 = _slicedToArray(ref[0], 2), ax = ref1[0], ay = ref1[1], setActual = ref[1];
     var ref2 = _slicedToArray(p1(false), 2), closing = ref2[0], setClosing = ref2[1];
     return h("div", {
-        className: "Window " + (closing ? "closing" : ""),
+        className: "Window ".concat(closing ? "closing" : ""),
         style: {
             left: ax,
             top: ay
@@ -428,7 +424,7 @@ function MyWindow(param) {
     }, children, h("div", {
         className: "Window__title",
         onPointerDown: function() {
-            return startTracking(function(dx, dy) {
+            return startTrackingPointerMove(function(dx, dy) {
                 return setActual(function(param) {
                     var _param = _slicedToArray(param, 2), oldx = _param[0], oldy = _param[1];
                     return [
@@ -439,13 +435,28 @@ function MyWindow(param) {
             });
         }
     }, title), h("button", {
-        className: "Window__closer",
+        class: "Window__closer",
         title: "Close",
         onClick: function(ev) {
             setClosing(true);
             onClose(ev);
         }
     }));
+}
+function startTrackingPointerMove(onMove) {
+    var handleMove = function(ev) {
+        onMove(ev.movementX, ev.movementY);
+    };
+    var handleEnd = function(ev) {
+        window.removeEventListener("pointercancel", handleEnd);
+        window.removeEventListener("pointerup", handleEnd);
+        window.removeEventListener("pointermove", handleMove);
+        console.info("Stopped tracking due to", ev.type);
+    };
+    window.addEventListener("pointercancel", handleEnd);
+    window.addEventListener("pointerup", handleEnd);
+    window.addEventListener("pointermove", handleMove);
+    console.info("Started tracking");
 }
 function MainApp() {
     return h("div", {
@@ -459,6 +470,6 @@ function MainApp() {
         x: 250,
         y: 20,
         title: "About"
-    }, h(AboutBox), h(B)));
+    }, h(AboutBox, null)));
 }
-P(h(MainApp), document.getElementById("main"));
+P(h(MainApp, null), document.getElementById("main"));
