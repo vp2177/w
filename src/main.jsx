@@ -13,7 +13,7 @@ function MainApp() {
   
 }
 
-render(h(MainApp), document.getElementById("main"));
+render(<MainApp />, document.getElementById("main"));
 
 /**
  * Create

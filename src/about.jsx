@@ -6,7 +6,6 @@ export function AboutBox() {
     <section>{navigator.hardwareConcurrency} cores</section>
     <section>{navigator.platform}</section>
     <section>{screen.width}*{screen.height}</section>
-    {/* h("section", {}, `Came from <${document.referrer}>`), */}
     <section>{String(navigator.languages)}</section>
     <section>
       {navigator.connection?.type}
