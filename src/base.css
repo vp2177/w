@@ -26,7 +26,7 @@ body {
   right: 0;
   left: 0;
   text-align: center;
-  cursor: nesw-resize;
+  cursor: move;
 }
 .Window__closer {
   position: absolute;
@@ -34,7 +34,6 @@ body {
   left: 0;
   background: transparent;
   border-width: 0;
-  color: red;
 }
 .Window__closer::after {
   content: "\0000d7";
