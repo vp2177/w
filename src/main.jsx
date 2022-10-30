@@ -1,3 +1,6 @@
+// import from "preact/compat" // TODO: This crashes SWC
+// import from "react-dom" // TODO: This also crashes SWC
+import {render, h} from "preact"
 // import { myWindow } from "./windows";
 
 /*
@@ -11,6 +14,12 @@ app({
   node: document.getElementById("main"),
 });
 */
+function MainApp() {
+  return "987"
+}
+
+render(h(MainApp), document.getElementById("main"))
+
 
 
 /**
