@@ -1,5 +1,6 @@
+import h from "solid-js/h"
 import SW from "solid-js/web"
-import {createSignal,} from "solid-js";
+import {createSignal} from "solid-js";
 // import { myWindow } from "./windows";
 
 /*
@@ -14,8 +15,7 @@ app({
 });
 */
 
-SW.render(() => "__", document.getElementById("main"))
-
+SW.render(() => h("var", {}, "Solid?"), document.getElementById("main"))
 
 /**
  * Create
