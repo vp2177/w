@@ -1,19 +1,23 @@
 {
   "private": true,
   "scripts": {
-    "build": "spack",
+    "build:swc": "spack",
+    "build": "esbuild --bundle src/main.jsx --outdir=.gen --minify # --target=ie11",
+    "watch": "--watch",
     "format": "prettier -w ."
   },
   "devDependencies": {
+    "@types/kefir": "3.8.7",
     "prettier": "2.7.1",
-    "@swc/cli": "0.1.57"
+    "esbuild": "0.15.13"
   },
   "dependencies": {
     "preact": "10.11.2",
     "kefir": "3.8.8"
   },
   "triedThese": {
-    "hyperapp": "~2.0",
-    "solid-js": "~1.6"
+    "@swc/cli": "0.1.57",
+    "hyperapp": "h() not quite like React",
+    "solid-js": ""
   }
 }
