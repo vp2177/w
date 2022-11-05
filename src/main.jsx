@@ -1,5 +1,4 @@
-// import from "preact/compat" // TODO: This crashes SWC
-// import from "react-dom" // TODO: This also crashes SWC (wtf)
+// import from "preact/compat" // TODO: This crashed SWC
 import { render, h } from "preact";
 import { AboutBox } from "./about";
 import { MyWindow } from "./windows";
@@ -11,7 +10,7 @@ function MainApp() {
       <MyWindow x={50} y={50}>
         <div className="Cone" />
       </MyWindow>
-      <MyWindow x={250} y={20} title="About">
+      <MyWindow x={160} y={80} title="About">
         <AboutBox />
       </MyWindow>
     </div>
