@@ -20,9 +20,8 @@ body {
   border-radius: 0.6em;
   box-shadow: 0 0.4em 0.8em #0008;
   overflow: hidden;
-  backdrop-filter: blur(  10px);
-  -webkit-backdrop-filter: blur(10px );
- 
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 .Window__title {
   position: absolute;
@@ -64,7 +63,7 @@ body {
 }
 
 .AboutBox {
-max-width: 300px;
+  max-width: 300px;
   text-align: center;
   margin: 2em 1em 1em;
 }
