@@ -4,7 +4,8 @@ body {
 
 .Desktop {
   /* linear-gradient(skyblue, turquoise) */
-  background-image: url("../assets/pexels-stein-egil-liland-1933319.jpg");
+  /* url("../assets/pexels-stein-egil-liland-1933319.jpg") */
+  background-image: radial-gradient(circle at bottom, yellow, crimson);
   background-size: cover;
   position: absolute;
   top: 0;
@@ -43,6 +44,7 @@ body {
   opacity: 0;
   transition-property: all;
   transition-duration: 0.3s;
+  scale: 0.5;
 }
 
 .Cone {
