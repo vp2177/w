@@ -1,7 +1,11 @@
 import { h } from "preact";
+import { useMemo} from "preact/hooks"
+import { getGLRenderer } from "./runtime-info";
 /* @jsx h */
 
 export function AboutBox() {
+ const glRenderer= useMemo(getGLRenderer, []   )
+
   return (
     <article className="AboutBox">
       <section>{navigator.hardwareConcurrency} cores</section>
@@ -15,6 +19,7 @@ export function AboutBox() {
         {navigator.connection?.downlink} down,
         {navigator.connection?.rtt} rtt
       </section>
+      <section>{glRenderer}</section>
     </article>
   );
 }
