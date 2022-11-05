@@ -42,8 +42,10 @@ export function MyWindow({
 
 /**
  * @param onMove {(dx: number, dy: number) => *}
+ * @param startingEvent {PointerEvent=}
+ * TODO: Move to own file
  */
-export function startTrackingPointerMove(onMove) {
+export function startTrackingPointerMove(onMove, startingEvent) {
   const handleMove = (/** @type {PointerEvent} */ ev) => {
     onMove(ev.movementX, ev.movementY);
   };
