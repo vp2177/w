@@ -20,6 +20,7 @@ export function AboutBox() {
         {navigator.connection?.rtt} rtt
       </section>
       <section>{glRenderer}</section>
+      <section>{location.hash}</section>
     </article>
   );
 }
