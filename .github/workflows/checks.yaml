@@ -1,0 +1,13 @@
+on: [pull_request, push]
+
+jobs:
+  JS-checks:
+    runs-on: macos-latest # ubuntu-latest 
+    steps:
+      - run: uname -a
+      - run: node --version
+      - uses: actions/checkout@v3
+      - run: npm install
+      - run: npm run format:check
+      - run: npm run type:check
+    
