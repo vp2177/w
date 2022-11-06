@@ -2,7 +2,7 @@
 import { render, h } from "preact";
 import { AboutBox } from "./about";
 import { MyWindow } from "./windows";
-/* @jsx h */
+/* at_jßx h - Was used by SWC */
 
 function MainApp() {
   return (
@@ -17,7 +17,8 @@ function MainApp() {
   );
 }
 
-render(<MainApp />, document.getElementById("main"));
+const target =document.getElementById("main");
+if (target) {render(<MainApp />, target); }
 
 /**
  * Create
