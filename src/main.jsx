@@ -17,8 +17,10 @@ function MainApp() {
   );
 }
 
-const target =document.getElementById("main");
-if (target) {render(<MainApp />, target); }
+const target = document.getElementById("main");
+if (target) {
+  render(<MainApp />, target);
+}
 
 /**
  * Create

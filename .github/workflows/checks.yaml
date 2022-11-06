@@ -2,7 +2,7 @@ on: [pull_request, push]
 
 jobs:
   JS-checks:
-    runs-on: macos-latest # ubuntu-latest 
+    runs-on: macos-latest # ubuntu-latest
     steps:
       - run: uname -a
       - run: node --version
@@ -10,4 +10,3 @@ jobs:
       - run: npm install
       - run: npm run format:check
       - run: npm run type:check
-    

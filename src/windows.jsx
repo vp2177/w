@@ -12,7 +12,7 @@ export function MyWindow({
 }) {
   const [[ax, ay], setActual] = useState([x, y]);
   const [closing, setClosing] = useState(false);
- const [zIndex, setZIndex] = useState(globalTop) // TODO: Delegate this outside
+  const [zIndex, setZIndex] = useState(globalTop); // TODO: Delegate this outside
 
   return (
     <div
@@ -27,7 +27,7 @@ export function MyWindow({
             setActual(([oldx, oldy]) => [oldx + dx, oldy + dy])
           )
         }
-        onClick={() => setZIndex(++globalTop) }
+        onClick={() => setZIndex(++globalTop)}
       >
         {title}
       </div>
@@ -41,7 +41,6 @@ export function MyWindow({
       />
     </div>
   );
-
 }
 
 /**
@@ -51,8 +50,12 @@ export function MyWindow({
  */
 export function startTrackingPointerMove(onMove, startingEvent) {
   const handleMove = (/** @type {PointerEvent} */ ev) => {
-    if (startingEvent)    onMove( ev.clientX - startingEvent.clientX , ev.clientY - startingEvent.clientY)
-    else     onMove(ev.movementX, ev.movementY);
+    if (startingEvent)
+      onMove(
+        ev.clientX - startingEvent.clientX,
+        ev.clientY - startingEvent.clientY
+      );
+    else onMove(ev.movementX, ev.movementY);
   };
   const handleEnd = (/** @type {PointerEvent} */ ev) => {
     window.removeEventListener("pointercancel", handleEnd);

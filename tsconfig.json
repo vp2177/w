@@ -1,15 +1,12 @@
 {
-    "compilerOptions": {
-        "noUncheckedIndexedAccess": true,
-        "jsx": "react",
-        "jsxFactory": "h",
-        "strict": true,
-        "checkJs": true,
+  "compilerOptions": {
+    "noUncheckedIndexedAccess": true,
+    "jsx": "react",
+    "jsxFactory": "h",
+    "strict": true,
+    "checkJs": true,
     "noImplicitAny": false,
-    "noEmit": true,
-
-    
-
-    },
-    "include": ["src/"]
+    "noEmit": true
+  },
+  "include": ["src/"]
 }
