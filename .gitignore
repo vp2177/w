@@ -1,3 +1,4 @@
 node_modules/
 package-lock.json
 /.gen/*.js.map
+.vscode/settings.json

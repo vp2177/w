@@ -2,14 +2,16 @@
   "private": true,
   "scripts": {
     "build:swc": "spack",
-    "build": "esbuild --bundle src/main.jsx --outdir=.gen --minify # --target=ie11",
-    "watch": "--watch",
-    "format": "prettier -w ."
+    "build": "esbuild --bundle src/main.jsx --outdir=.gen --minify # --target=ie11 --watch",
+    "format": "prettier -w .",
+    "format:check": "prettier -c .",
+    "type:check": "tsc"
   },
   "devDependencies": {
     "@types/kefir": "3.8.7",
     "prettier": "2.7.1",
-    "esbuild": "0.15.13"
+    "esbuild": "0.15.13",
+    "typescript": "4.8.4"
   },
   "dependencies": {
     "preact": "10.11.2",
