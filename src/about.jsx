@@ -1,7 +1,7 @@
 import { h } from "preact";
 import { useMemo } from "preact/hooks";
+import { useInterval } from "./hooks";
 import { getGLRenderer } from "./runtime-info";
-/* @jsx h */
 
 export function AboutBox() {
   const glRenderer = useMemo(getGLRenderer, []);
