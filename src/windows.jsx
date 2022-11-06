@@ -1,6 +1,7 @@
 import { h } from "preact";
 import { useState } from "preact/hooks";
-/* @jsx h */
+
+let globalTop = 2;
 
 export function MyWindow({
   x = 0,
@@ -11,11 +12,12 @@ export function MyWindow({
 }) {
   const [[ax, ay], setActual] = useState([x, y]);
   const [closing, setClosing] = useState(false);
+ const [zIndex, setZIndex] = useState(globalTop) // TODO: Delegate this outside
 
   return (
     <div
       className={`Window ${closing ? "closing" : ""}`}
-      style={{ left: ax, top: ay }}
+      style={{ left: ax, top: ay, zIndex }}
     >
       {children}
       <div
@@ -25,6 +27,7 @@ export function MyWindow({
             setActual(([oldx, oldy]) => [oldx + dx, oldy + dy])
           )
         }
+        onClick={() => setZIndex(++globalTop) }
       >
         {title}
       </div>
@@ -33,11 +36,12 @@ export function MyWindow({
         title="Close"
         onClick={(ev) => {
           setClosing(true);
-          onClose(ev);
+          onClose();
         }}
       />
     </div>
   );
+
 }
 
 /**
@@ -47,7 +51,8 @@ export function MyWindow({
  */
 export function startTrackingPointerMove(onMove, startingEvent) {
   const handleMove = (/** @type {PointerEvent} */ ev) => {
-    onMove(ev.movementX, ev.movementY);
+    if (startingEvent)    onMove( ev.clientX - startingEvent.clientX , ev.clientY - startingEvent.clientY)
+    else     onMove(ev.movementX, ev.movementY);
   };
   const handleEnd = (/** @type {PointerEvent} */ ev) => {
     window.removeEventListener("pointercancel", handleEnd);
@@ -61,5 +66,5 @@ export function startTrackingPointerMove(onMove, startingEvent) {
   window.addEventListener("pointerup", handleEnd);
   window.addEventListener("pointermove", handleMove);
 
-  console.info("Started tracking");
+  console.info("Started tracking from", startingEvent?.type);
 }
