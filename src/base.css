@@ -4,8 +4,10 @@ body {
 
 .Desktop {
   /* url("../assets/pexels-stein-egil-liland-1933319.jpg") */
-  background-image: radial-gradient(circle at bottom, yellow, crimson);
-  background-size: cover;
+  /* radial-gradient(circle at bottom, yellow, crimson) */
+  background-image: linear-gradient(to left, aqua, transparent 2px),
+    linear-gradient(to top, aqua, white 2px);
+  background-size: 30px 30px;
   position: absolute;
   top: 0;
   right: 0;
