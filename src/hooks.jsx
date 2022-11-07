@@ -8,3 +8,18 @@ export function useInterval(period = 1000) {
   }, [period /*, setC*/]);
   return c;
 }
+
+/** 
+ * @template T 
+ * @param p {Promise<T>}
+ */
+export function usePromise(p ) {
+    /** @type {T|undefined} */
+    let init;
+   const [v, setV] = useState(init)
+   useEffect(() => {
+    p.then(setV,)
+    // return () => // TODO: Unsubscribe somehow
+   },[p])
+   return v;
+}
