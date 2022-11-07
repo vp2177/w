@@ -1,5 +1,6 @@
 import { h } from "preact";
 import { useState } from "preact/hooks";
+import { startTrackingPointerMove } from "./tracker";
 
 let globalTop = 2;
 
