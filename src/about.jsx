@@ -15,9 +15,9 @@ export function AboutBox() {
       </section>
       <section>{String(navigator.languages)}</section>
       <section>
-        {navigator.connection?.type}
         {navigator.connection?.downlink} down,
         {navigator.connection?.rtt} rtt
+        - {navigator.connection?.type}
       </section>
       <section>{glRenderer}</section>
       <section>{location.hash}</section>

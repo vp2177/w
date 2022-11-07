@@ -9,6 +9,7 @@ export function MyWindow({
   y = 0,
   title = "Untitled",
   onClose = () => {},
+  onRaise = () => {},
   children,
 }) {
   const [[ax, ay], setActual] = useState([x, y]);
@@ -28,7 +29,8 @@ export function MyWindow({
             setActual(([oldx, oldy]) => [oldx + dx, oldy + dy])
           )
         }
-        onClick={() => setZIndex(++globalTop)}
+        onClick={() => {setZIndex(++globalTop);
+        onRaise()}}
       >
         {title}
       </div>
