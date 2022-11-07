@@ -29,8 +29,10 @@ export function MyWindow({
             setActual(([oldx, oldy]) => [oldx + dx, oldy + dy])
           )
         }
-        onClick={() => {setZIndex(++globalTop);
-        onRaise()}}
+        onClick={() => {
+          setZIndex(++globalTop);
+          onRaise();
+        }}
       >
         {title}
       </div>
