@@ -2,7 +2,7 @@ on: [pull_request, push]
 
 jobs:
   JS-checks:
-    runs-on: ${{ matrix.os }} 
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [macos-latest, ubuntu-latest]
