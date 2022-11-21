@@ -6,7 +6,8 @@
     "strict": true,
     "checkJs": true,
     "noImplicitAny": false,
-    "noEmit": true
+    "noEmit": true,
+    "esModuleInterop": true
   },
   "include": ["src/"]
 }

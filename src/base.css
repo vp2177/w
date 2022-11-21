@@ -70,3 +70,30 @@ body {
   text-align: center;
   margin: 2em 1em 1em;
 }
+
+.DockContainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+
+}
+.Dock {
+  background-color: #aaa4;
+  box-shadow: 0 0.4em 0.8em #0008;
+  border-radius: 0.8em;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  
+}
+.AppIcon {
+  width: 55px;
+  height: 55px;
+  background-image: linear-gradient(135deg, skyblue, cornflowerblue);
+  border-radius: 1.2em;
+  border-width: 0;
+  margin: 0.4em;
+
+}
