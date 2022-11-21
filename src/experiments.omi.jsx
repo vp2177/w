@@ -7,11 +7,11 @@ export class OmiCounter extends WeElement {
         this.n ++;
         this.update()
     }
-
+    
     render(props) {
         
-        return <var  onClick={this._handleAdd}>
-            {this.n}
+        return <var  onMouseMove={this._handleAdd} >
+           Omi:{this.n}
         </var>;
 
     }
