@@ -2,6 +2,7 @@
 import { render, h } from "preact";
 import { AboutBox } from "./about";
 import { MyWindow } from "./windows";
+import  "./experiments.omi"
 /* at_jßx h - Was used by SWC */
 
 function MainApp() {
@@ -13,6 +14,12 @@ function MainApp() {
       <MyWindow x={160} y={80} title="System Info">
         <AboutBox />
       </MyWindow>
+      <div className="DockContainer">
+      <nav className="Dock">
+        <button className="AppIcon" title="Foo" />
+        <button className="AppIcon active" title="Bar" />
+      </nav>
+      </div>
     </div>
   );
 }
@@ -26,7 +33,5 @@ if (target) {
  * Create:
  * - price ticker
  * - demo video player
- * - dock
- * - Omi, Inferno demos
  * - pd
  */

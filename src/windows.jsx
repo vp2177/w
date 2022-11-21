@@ -22,7 +22,7 @@ export function MyWindow({
       style={{ left: ax, top: ay, zIndex }}
     >
       {children}
-      <div
+      <header
         className="Window__title"
         onPointerDown={() =>
           startTrackingPointerMove((dx, dy) =>
@@ -35,7 +35,7 @@ export function MyWindow({
         }}
       >
         {title}
-      </div>
+      </header>
       <button
         class="Window__closer"
         title="Close"
@@ -46,4 +46,17 @@ export function MyWindow({
       />
     </div>
   );
+}
+
+/** 
+ * @typedef WindowT
+ * @property {string=} title 
+ * @property {string} id
+ * @property {ContentRenderer} renderer 
+ */
+
+
+class ContentRenderer {}
+class ContentRendererJSX extends ContentRenderer {
+  vnode = <span />;
 }
