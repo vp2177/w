@@ -16,7 +16,6 @@ body {
 }
 
 .Window {
-  /* gainsboro; */
   background-color: #fff4;
   position: absolute;
   border-radius: 0.6em;

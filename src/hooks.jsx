@@ -14,12 +14,13 @@ export function useInterval(period = 1000) {
  * @param p {Promise<T>}
  */
 export function usePromise(p) {
+ const [gen,setGen] =useState(0)
   /** @type {T|undefined} */
   let init;
   const [v, setV] = useState(init);
   useEffect(() => {
     p.then(setV);
-    // return () => // TODO: Unsubscribe somehow
+    // return () => // TODO: Unsubscribe somehow (gen)
   }, [p]);
   return v;
 }

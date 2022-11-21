@@ -11,7 +11,7 @@ export function AboutBox() {
       <section>{navigator.hardwareConcurrency} cores</section>
       <section>{navigator.platform}</section>
       <section>
-        {screen.width}*{screen.height}
+        {screen.width}×{screen.height}
       </section>
       <section>{String(navigator.languages)}</section>
       <section>
