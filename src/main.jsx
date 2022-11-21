@@ -10,7 +10,7 @@ function MainApp() {
       <MyWindow x={50} y={50}>
         <div className="Cone" />
       </MyWindow>
-      <MyWindow x={160} y={80} title="About">
+      <MyWindow x={160} y={80} title="System Info">
         <AboutBox />
       </MyWindow>
     </div>
@@ -23,7 +23,9 @@ if (target) {
 }
 
 /**
- * Create
+ * Create:
  * - price ticker
  * - demo video player
+ * - dock
+ * - Omi, Inferno demos
  */
