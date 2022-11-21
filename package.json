@@ -8,21 +8,20 @@
     "type:check": "tsc"
   },
   "devDependencies": {
-    "@types/kefir": "3.8.7",
     "prettier": "2.7.1",
     "esbuild": "0.15.15",
     "typescript": "4.9.3"
   },
   "dependencies": {
     "preact": "10.11.3",
-    "inferno": "8.0.4",
     "omi": "6.25.10",
     "hyperactiv": "0.11.3"
   },
   "oldDependencies": {
     "@swc/cli": "0.1.57",
-    "hyperapp": "h() not quite like React",
+    "hyperapp": "",
+    "@types/kefir": "3.8.7",
     "kefir": "3.8.8",
-    "solid-js": "JSX transform is custom?"
+    "inferno/-create-element": "No hooks"
   }
 }
