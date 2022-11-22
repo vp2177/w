@@ -1,4 +1,4 @@
-import  {h, WeElement, defineElement , tag} from "omi";
+import  {h, WeElement, defineElement , tag, render} from "omi";
 
 
 export class OmiCounter extends WeElement {

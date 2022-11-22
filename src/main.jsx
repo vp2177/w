@@ -2,7 +2,6 @@
 import {render, h,  defineElement, } from "omi"
 import { AboutBox } from "./about";
 import { MyWindow } from "./windows";
-import  "./experiments.omi"
 import { ShadowlessElement } from "./omi-utils";
 /* at_jßx h - Was used by SWC */
 
