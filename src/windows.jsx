@@ -1,32 +1,46 @@
-import { h } from "preact";
-import { useState } from "preact/hooks";
+import {h , defineElement} from "omi"
+import { ShadowlessElement } from "./omi-utils";
 import { startTrackingPointerMove } from "./tracker";
 
 let globalTop = 2;
 
-export function MyWindow({
-  x = 0,
-  y = 0,
-  title = "Untitled",
+export class MyWindow extends ShadowlessElement {
+static propTypes = {
+  x: Number,
+  y: Number,
+  title: String,
+  // onClose, onRaise
+}
+
+ax = 400
+ay = 50
+closing = false
+zIndex = globalTop;// TODO: Delegate this outside
+
+
+  render({title ,
   onClose = () => {},
   onRaise = () => {},
-  children,
+  children
 }) {
-  const [[ax, ay], setActual] = useState([x, y]);
-  const [closing, setClosing] = useState(false);
-  const [zIndex, setZIndex] = useState(globalTop); // TODO: Delegate this outside
+  
+    const        setZIndex = console.warn;     
 
   return (
-    <div
-      className={`Window ${closing ? "closing" : ""}`}
-      style={{ left: ax, top: ay, zIndex }}
+    <div 
+      className={`Window ${this.closing ? "closing" : ""}`}
+      style={{ left: this.ax, top: this.ay, zIndex: this.zIndex }}
     >
       {children}
+      {/* <slot /> TODO */}
       <header
         className="Window__title"
         onPointerDown={() =>
-          startTrackingPointerMove((dx, dy) =>
-            setActual(([oldx, oldy]) => [oldx + dx, oldy + dy])
+          startTrackingPointerMove((dx, dy) => {
+            this.ax += dx;
+            this.ay += dy;
+            this.update()
+          }
           )
         }
         onClick={() => {
@@ -34,19 +48,23 @@ export function MyWindow({
           onRaise();
         }}
       >
-        {title}
+        {title ?? "Untitled"}
       </header>
       <button
         class="Window__closer"
         title="Close"
         onClick={(ev) => {
-          setClosing(true);
+          this.closing = true
+          this.update()
           onClose();
         }}
       />
     </div>
   );
+      }
+      
 }
+defineElement("my-window",MyWindow)
 
 /** 
  * @typedef WindowT

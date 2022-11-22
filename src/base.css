@@ -23,6 +23,9 @@ body {
   overflow: hidden;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  min-width: 50px;
+  min-height: 50px;
+  
 }
 .Window__title {
   position: absolute;
