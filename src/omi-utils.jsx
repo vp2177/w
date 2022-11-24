@@ -1,4 +1,4 @@
-import {WeElement} from "omi"
+import {WeElement, h, defineElement, } from "omi"
 
 export class ShadowlessElement extends WeElement {
     /** 
@@ -12,3 +12,31 @@ export class ShadowlessElement extends WeElement {
 
     render(_props, _store) {}
 }
+
+
+/** 
+ * @typedef {(() => JSX.Element ) | ((container?: Element) => void) } RenderProp 
+ */
+
+/** 
+ * Workaround for Omi's apparently broken slotting when not using Shadow DOM, 
+ * which clones the slotted element instead of adopting it.
+ */
+export class RenderTheProp extends ShadowlessElement {
+    _containerRef = undefined
+    
+
+    /**
+     * @param props {object}
+     * @param props.prop {RenderProp}
+     */
+    render( 
+        { prop} ) {
+
+        const res = prop?.()
+        if (res) return res;
+        else console.warn("<RenderTheProp>: Imperative renderers not supported yet,", prop, "->", res) 
+
+    }
+}
+defineElement("render-the-prop", RenderTheProp,)

@@ -11,12 +11,9 @@ render() {
 
   return (
     <div className="Desktop">
-      <MyWindow >
-        <div className="Cone" />
-      </MyWindow>
-      <my-window  title="System Info">
-        <AboutBox />
-      </my-window>
+      <MyWindow renderProp={() => <div className="Cone" />} />
+      <my-window  title="System Info" 
+        renderProp={() => <AboutBox />} />
       <div className="DockContainer">
       <nav className="Dock">
         <button className="AppIcon" title="Foo" />
