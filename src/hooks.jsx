@@ -5,7 +5,7 @@ export function useInterval(period = 1000) {
   useEffect(() => {
     const id = setInterval(() => setC((prev) => prev + 1), period);
     return () => clearInterval(id);
-  }, [period ]);
+  }, [period]);
   return c;
 }
 
@@ -14,7 +14,7 @@ export function useInterval(period = 1000) {
  * @param p {Promise<T>}
  */
 export function usePromise(p) {
- const [gen,setGen] =useState(0)
+  const [gen, setGen] = useState(0);
   /** @type {T|undefined} */
   let init;
   const [v, setV] = useState(init);
