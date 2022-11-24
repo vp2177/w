@@ -5,7 +5,7 @@ export function useInterval(period = 1000) {
   useEffect(() => {
     const id = setInterval(() => setC((prev) => prev + 1), period);
     return () => clearInterval(id);
-  }, [period /*, setC*/]);
+  }, [period ]);
   return c;
 }
 

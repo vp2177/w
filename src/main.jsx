@@ -1,23 +1,23 @@
-// import from "preact/compat" // TODO: This crashed SWC
-import {render, h,  defineElement, } from "omi"
+import {h, render} from "preact"
 import { AboutBox } from "./about";
 import { MyWindow } from "./windows";
-import { ShadowlessElement } from "./omi-utils";
 /* at_jßx h - Was used by SWC */
 
-class MainApp extends ShadowlessElement {
-render() {
+function  MainApp()  {
   
 
   return (
     <div className="Desktop">
-      <MyWindow renderProp={() => <div className="Cone" />} />
-      <my-window  title="System Info" 
-        renderProp={() => <AboutBox />} />
+      <MyWindow  >
+        <div className="Cone" />
+      </MyWindow>
+      <MyWindow   title="System Info"  >
+          <AboutBox />
+          </MyWindow>
       <div className="DockContainer">
       <nav className="Dock">
-        <button className="AppIcon" title="Foo" />
-        <button className="AppIcon active" title="Bar" />
+        <button className="AppIcon" title="A" />
+        <button className="AppIcon active" title="B" />
       </nav>
       </div>
     </div>
@@ -25,8 +25,6 @@ render() {
 }
 
 
-}
-defineElement("main-app",MainApp)
 
 const target = document.getElementById("main");
 if (target) {
