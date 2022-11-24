@@ -1,4 +1,4 @@
-/** 
+/**
  * @typedef AppIconT
  * @property {string=} title
  * @property {string} id

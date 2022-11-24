@@ -1,19 +1,14 @@
-import  {h, WeElement, defineElement , tag} from "omi";
-
+import { h, WeElement, defineElement, tag } from "omi";
 
 export class OmiCounter extends WeElement {
-    n = 0
-    _handleAdd = ( ) => {
-        this.n ++;
-        this.update()
-    }
+  n = 0;
+  _handleAdd = () => {
+    this.n++;
+    this.update();
+  };
 
-    render({}) {
-        
-        return <var  onMouseMove={this._handleAdd} >
-           Omi:{this.n}
-        </var>;
-
-    }
+  render({}) {
+    return <var onMouseMove={this._handleAdd}>Omi:{this.n}</var>;
+  }
 }
-defineElement("omi-counter",OmiCounter,)
+defineElement("omi-counter", OmiCounter);
