@@ -1,10 +1,9 @@
-import {h} from "preact"
-import {useMemo} from "preact/hooks"
+import { h } from "preact";
+import { useMemo } from "preact/hooks";
 import { getGLRenderer } from "./runtime-info";
 
-export function  AboutBox()  {
-  const glRenderer= useMemo( getGLRenderer,[])
-
+export function AboutBox() {
+  const glRenderer = useMemo(getGLRenderer, []);
 
   return (
     <article className="AboutBox">
@@ -18,9 +17,8 @@ export function  AboutBox()  {
         {navigator.connection?.downlink} down,
         {navigator.connection?.rtt} rtt - {navigator.connection?.type}
       </section>
-      <section>{glRenderer }</section>
+      <section>{glRenderer}</section>
       <section>{location.hash}</section>
     </article>
   );
 }
-
