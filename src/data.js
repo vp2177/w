@@ -13,4 +13,3 @@ export function randomColorHSL(saturation = 100, light = 50) {
  const hue = Math.random() * 360
  return `hsl(${hue}, ${saturation}%, ${light}%)`
 }
-// TODO: Rename file
