@@ -1,51 +1,46 @@
 import {h , defineElement} from "omi"
-import { ShadowlessElement } from "./omi-utils";
+import { RenderTheProp, ShadowlessElement } from "./omi-utils";
 import { startTrackingPointerMove } from "./tracker";
 
 let globalTop = 2;
 
 export class MyWindow extends ShadowlessElement {
-static propTypes = {
-  x: Number,
-  y: Number,
-  title: String,
-  // onClose, onRaise
-}
 
-ax = 400
-ay = 50
+/* static propTypes */
+ax = Math.random() * window.innerWidth / 2
+ay = Math.random() * window.innerHeight / 2
 closing = false
 zIndex = globalTop;// TODO: Delegate this outside
 
 
   render({title ,
-  onClose = () => {},
-  onRaise = () => {},
-  children
+    renderProp,
+    children
 }) {
-  
-    const        setZIndex = console.warn;     
 
   return (
     <div 
       className={`Window ${this.closing ? "closing" : ""}`}
       style={{ left: this.ax, top: this.ay, zIndex: this.zIndex }}
     >
-      {children}
-      {/* <slot /> TODO */}
+      <RenderTheProp prop={renderProp} />
+      {/* <slot />, children <- TODO */}
       <header
         className="Window__title"
         onPointerDown={() =>
           startTrackingPointerMove((dx, dy) => {
             this.ax += dx;
             this.ay += dy;
+            return;
             this.update()
           }
           )
         }
         onClick={() => {
-          setZIndex(++globalTop);
-          onRaise();
+          this.zIndex = (++globalTop);
+          return;
+          this.update()
+          this.fire("raise"); // onRaise()
         }}
       >
         {title ?? "Untitled"}
@@ -56,7 +51,7 @@ zIndex = globalTop;// TODO: Delegate this outside
         onClick={(ev) => {
           this.closing = true
           this.update()
-          onClose();
+          this.fire("closing"); // onClose()
         }}
       />
     </div>
@@ -70,11 +65,7 @@ defineElement("my-window",MyWindow)
  * @typedef WindowT
  * @property {string=} title 
  * @property {string} id
- * @property {ContentRenderer} renderer 
+ * @property {unknown} renderer 
  */
 
 
-class ContentRenderer {}
-class ContentRendererJSX extends ContentRenderer {
-  vnode = <span />;
-}
