@@ -3,10 +3,11 @@ body {
 }
 
 .Desktop {
+  --gridStrokeWidth: 1px;
   /* url("../assets/pexels-stein-egil-liland-1933319.jpg") */
   /* radial-gradient(circle at bottom, yellow, crimson) */
-  background-image: linear-gradient(to left, antiquewhite, transparent 2px),
-    linear-gradient(to top, antiquewhite, white 2px);
+  background-image: linear-gradient(to left, antiquewhite, transparent var(--gridStrokeWidth)),
+    linear-gradient(to top, antiquewhite, white var(--gridStrokeWidth) );
   background-size: 30px 30px;
   position: absolute;
   top: 0;
@@ -16,7 +17,7 @@ body {
 }
 
 .Window {
-  background-color: #fff4;
+  background-color: #ddd4;
   position: absolute;
   border-radius: 0.6em;
   box-shadow: 0 0.4em 0.8em #0008;
@@ -45,8 +46,8 @@ body {
   margin: 0.2em;
   border-radius: 50%;
   padding: 0;
-  width: 1em;
-  height: 1em;
+  width: 0.8em;
+  height: 0.8em;
   box-shadow: inset 0 0 1px #000;
 }
 .Window__closer::after {
@@ -85,7 +86,7 @@ body {
 
 }
 .Dock { 
-  background-color: #8884;
+  background-color: #5554;
   box-shadow: 0 0.4em 0.8em #0008;
   border-radius: 0.8em;
   backdrop-filter: blur(10px);

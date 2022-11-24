@@ -1,12 +1,9 @@
-import {h, defineElement} from "omi"
-import { ShadowlessElement } from "./omi-utils";
+import {h} from "preact"
+import {useMemo} from "preact/hooks"
 import { getGLRenderer } from "./runtime-info";
 
-export class AboutBox extends ShadowlessElement {
-
-  _glRenderer = getGLRenderer()
-
-  render() {
+export function  AboutBox()  {
+  const glRenderer= useMemo( getGLRenderer,[])
 
 
   return (
@@ -21,10 +18,9 @@ export class AboutBox extends ShadowlessElement {
         {navigator.connection?.downlink} down,
         {navigator.connection?.rtt} rtt - {navigator.connection?.type}
       </section>
-      <section>{this._glRenderer}</section>
+      <section>{glRenderer }</section>
       <section>{location.hash}</section>
     </article>
   );
 }
-}
-defineElement("my-about", AboutBox)
+
