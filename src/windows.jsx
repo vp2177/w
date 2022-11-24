@@ -1,71 +1,61 @@
-import {h , defineElement} from "omi"
-import { RenderTheProp, ShadowlessElement } from "./omi-utils";
+import {h} from "preact"
+import {useState} from "preact/hooks"
 import { startTrackingPointerMove } from "./tracker";
 
 let globalTop = 2;
 
-export class MyWindow extends ShadowlessElement {
+export function MyWindow({
+  title = "Untitled",
+  children}) {
 
-/* static propTypes */
-ax = Math.random() * window.innerWidth / 2
-ay = Math.random() * window.innerHeight / 2
-closing = false
-zIndex = globalTop;// TODO: Delegate this outside
+const [ax,setAx] =    useState(() => Math.random() * window.innerWidth / 2)
+const [ay,setAy] =    useState(() => Math.random() * window.innerHeight / 2)
+const [closing,setClosing] =    useState(false)
+const [zIndex, setZIndex] =    useState(globalTop) // TODO: Delegate this outside
 
 
-  render({title ,
-    renderProp,
-    children
-}) {
+
 
   return (
     <div 
-      className={`Window ${this.closing ? "closing" : ""}`}
-      style={{ left: this.ax, top: this.ay, zIndex: this.zIndex }}
+      className={`Window ${closing   ? "closing" : ""}`}
+      style={{ left: ax, top: ay, zIndex}}
     >
-      <RenderTheProp prop={renderProp} />
-      {/* <slot />, children <- TODO */}
+      {children}
       <header
         className="Window__title"
         onPointerDown={() =>
           startTrackingPointerMove((dx, dy) => {
-            this.ax += dx;
-            this.ay += dy;
-            return;
-            this.update()
+            setAx(p => p+dx);
+            setAy(p => p+dy);
           }
           )
         }
         onClick={() => {
-          this.zIndex = (++globalTop);
-          return;
-          this.update()
-          this.fire("raise"); // onRaise()
+          setZIndex(++globalTop)
+          // onRaise()
         }}
       >
-        {title ?? "Untitled"}
+        {title }
       </header>
       <button
         class="Window__closer"
         title="Close"
         onClick={(ev) => {
-          this.closing = true
-          this.update()
-          this.fire("closing"); // onClose()
+          setClosing(true)
+          // onClosing()
         }}
       />
     </div>
   );
       }
       
-}
-defineElement("my-window",MyWindow)
 
 /** 
  * @typedef WindowT
  * @property {string=} title 
  * @property {string} id
- * @property {unknown} renderer 
+ * @property {Function} renderer 
  */
 
 
