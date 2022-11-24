@@ -1,13 +1,7 @@
-/*
-export function* rate(around = 100, variance = 5 / 100) {
-  let r = around;
-  while (true) {
+export function nextRate(prev = 100, variance= 5/100) {
     const rand = Math.random() * 2 - 1;
-    r = r + rand * variance;
-    yield r;
+    return prev +rand * variance
   }
-}
-*/
 
 export function randomColorHSL(saturation = 100, light = 50) {
  const hue = Math.random() * 360

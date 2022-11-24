@@ -1,4 +1,4 @@
-import  {h, WeElement, defineElement , tag, render} from "omi";
+import  {h, WeElement, defineElement , tag} from "omi";
 
 
 export class OmiCounter extends WeElement {
@@ -7,8 +7,8 @@ export class OmiCounter extends WeElement {
         this.n ++;
         this.update()
     }
-    
-    render(props) {
+
+    render({}) {
         
         return <var  onMouseMove={this._handleAdd} >
            Omi:{this.n}
