@@ -14,15 +14,13 @@
   },
   "dependencies": {
     "preact": "10.11.3",
-    "omi": "6.25.10",
-    "solid-js": "1.6.2",
     "hyperactiv": "0.11.3"
   },
   "oldDependencies": {
-    "@swc/cli": "0.1.57",
-    "hyperapp": "",
-    "@types/kefir": "3.8.7",
-    "kefir": "3.8.8",
-    "inferno/-create-element": "No hooks"
+    "@swc/cli": "0.1.57: Crashy",
+    "kefir": "",
+    "inferno": "Doesn't have hooks",
+    "solid-js": "1.6.2: Needs Babel. Missing typings? h() not JSX compatible",
+    "omi": "<slot>ting broken when not using Shadow DOM"
   }
 }
