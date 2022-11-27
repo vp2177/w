@@ -1,12 +1,13 @@
 import { h } from "preact";
 import { useState } from "preact/hooks";
+import { randomBetween } from "./data"
 import { startTrackingPointerMove } from "./tracker";
 
 let globalTop = 2;
 
 export function MyWindow({ title = "Untitled", children }) {
-  const [ax, setAx] = useState(() => (Math.random() * window.innerWidth) / 2);
-  const [ay, setAy] = useState(() => (Math.random() * window.innerHeight) / 2);
+  const [ax, setAx] = useState(() => randomBetween(0,window.innerWidth / 2) );
+  const [ay, setAy] = useState(() =>randomBetween(10, window.innerHeight / 2) );
   const [closing, setClosing] = useState(false);
   const [zIndex, setZIndex] = useState(globalTop); // TODO: Delegate this outside
 
