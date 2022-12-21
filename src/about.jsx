@@ -6,11 +6,11 @@ export function AboutBox() {
   const glRenderer = useMemo(getGLRenderer, []);
 
   return (
-    <article className="AboutBox">
+    <article className="AboutBox AboutBox--default">
       <section>{navigator.hardwareConcurrency} cores</section>
       <section>{navigator.platform}</section>
       <section>
-        {screen.width}*{screen.height}
+        {screen.width}*{screen.height} {window.devicePixelRatio}x
       </section>
       <section>{String(navigator.languages)}</section>
       <section>
