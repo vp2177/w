@@ -7,7 +7,7 @@ body {
   --gridStrokeWidth: 1px;
   /* url("../assets/pexels-stein-egil-liland-1933319.jpg") */
   /* radial-gradient(circle at bottom, yellow, crimson) */
- /* linear-gradient(to left, antiquewhite, transparent var(--gridStrokeWidth) ),
+  /* linear-gradient(to left, antiquewhite, transparent var(--gridStrokeWidth) ),
     linear-gradient(to top, antiquewhite, white var(--gridStrokeWidth)) 
     background-size: 30px 30px; */
   position: absolute;
@@ -17,9 +17,7 @@ body {
   left: 0;
 }
 .Desktop--default {
-  background-image: linear-gradient(
-    to bottom, teal, turquoise
-  );
+  background-image: linear-gradient(to bottom, teal, turquoise);
 }
 
 .Window {
