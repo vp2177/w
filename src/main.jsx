@@ -11,7 +11,7 @@ function MainApp() {
  const [openWin, setOpenWin] = useState(DEFAULT_WINDOWS)
 
   return (
-    <div className="Desktop">
+    <div className="Desktop Desktop--default">
       {openWin.map((w, i) => <MyWindow title={w.title} key={w.id}>-</MyWindow> )}
       <MyWindow>
         <div className="Cone" />
@@ -19,10 +19,10 @@ function MainApp() {
       <MyWindow title="System Info">
         <AboutBox />
       </MyWindow>
-      <div className="DockContainer">
-        <nav className="Dock">
-          <button className="AppIcon" title="A" />
-          <button className="AppIcon active" title="B" />
+      <div className="DockContainer DockContainer--default">
+        <nav className="Dock Dock--default">
+          <button className="AppIcon AppIcon--default" title="A" />
+          <button className="AppIcon AppIcon--default active" title="B" />
         </nav>
       </div>
     </div>
@@ -36,7 +36,9 @@ if (target) {
 
 /**
  * Create:
- * - price ticker
- * - demo video player
+ * - ticker
+ * - player
  * - pd
+ * - sound freq
+ * - grav
  */

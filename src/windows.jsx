@@ -5,7 +5,7 @@ import { startTrackingPointerMove } from "./tracker";
 
 let globalTop = 2;
 
-export function MyWindow({ title = "Untitled", children }) {
+export function MyWindow({ title = "Untitled", theme="default", children }) {
   const [ax, setAx] = useState(() => randomBetween(0,window.innerWidth / 2) );
   const [ay, setAy] = useState(() =>randomBetween(10, window.innerHeight / 2) );
   const [closing, setClosing] = useState(false);
@@ -13,12 +13,12 @@ export function MyWindow({ title = "Untitled", children }) {
 
   return (
     <div
-      className={`Window ${closing ? "closing" : ""}`}
+      className={`Window Window--${theme} ${closing ? `closing closing--${theme}` : ""}`}
       style={{ left: ax, top: ay, zIndex }}
     >
       {children}
       <header
-        className="Window__title"
+        className={`Window__title Window__title--${theme}`}
         onPointerDown={() =>
           startTrackingPointerMove((dx, dy) => {
             setAx((p) => p + dx);
@@ -33,7 +33,7 @@ export function MyWindow({ title = "Untitled", children }) {
         {title}
       </header>
       <button
-        class="Window__closer"
+        class={`Window__closer Window__closer--${theme}`}
         title="Close"
         onClick={(ev) => {
           setClosing(true);
