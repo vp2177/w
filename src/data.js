@@ -11,3 +11,12 @@ export function randomColorHSL(saturation = 100, light = 50) {
 export function randomBetween(a = 0, b = 1) {
   return a + Math.random() * (b - a);
 }
+
+export function initials(s = "", n = 2) {
+ const parts = s.split(/\s+/, n )
+ return ( parts.length >= n)? (
+  parts.map((p) => p[0]).join("")
+ ) : (
+  s.slice(0, n)
+ )
+}

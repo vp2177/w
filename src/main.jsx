@@ -25,8 +25,8 @@ function MainApp() {
       </MyWindow>
       <div className="DockContainer DockContainer--default">
         <nav className="Dock Dock--default">
-          <button className="AppIcon AppIcon--default" title="A" />
-          <button className="AppIcon AppIcon--default active" title="B" />
+          <button className="AppIcon AppIcon--default" title="Foo App" />
+          <button className="AppIcon AppIcon--default active" title="Bar App" />
         </nav>
       </div>
     </div>
@@ -45,4 +45,5 @@ if (target) {
  * - pd
  * - sound freq
  * - grav
+ * - DOH lookup?
  */
