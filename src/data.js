@@ -13,10 +13,6 @@ export function randomBetween(a = 0, b = 1) {
 }
 
 export function initials(s = "", n = 2) {
- const parts = s.split(/\s+/, n )
- return ( parts.length >= n)? (
-  parts.map((p) => p[0]).join("")
- ) : (
-  s.slice(0, n)
- )
+  const parts = s.split(/\s+/, n);
+  return parts.length >= n ? parts.map((p) => p[0]).join("") : s.slice(0, n);
 }
